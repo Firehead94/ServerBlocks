@@ -1,6 +1,11 @@
 package com.firehead.serverblocks;
 
+import java.util.ArrayList;
+
 public class ModSettings {
+	
+	public static final String TEXTURE_LOC = "serverblocks";
+	public static final String TEXTURE_LOC_GUI = TEXTURE_LOC + ":textures/gui/";
 	
 	public static final int TIER_COUNT_DEFAULT = 6;
 	
@@ -55,7 +60,7 @@ public class ModSettings {
 	public static int TIER_4_LENGTH;
 	public static int TIER_4_HEIGHT;
 	
-	public static String TIER_5_NAME_;
+	public static String TIER_5_NAME;
 	public static int TIER_5_WIDTH;
 	public static int TIER_5_LENGTH;
 	public static int TIER_5_HEIGHT;
