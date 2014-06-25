@@ -12,6 +12,7 @@ public class ServerBlocks {
 	public static final String MOD_ID = "ServerBlocks";
 	public static final String MOD_NAME = "Server Blocks";
 	public static final String MOD_VERSION = "1.7.2-1.0.0";
+	public static final boolean debug = false;
 	
 	@Mod.Instance(MOD_ID)
 	public static ServerBlocks instance;
