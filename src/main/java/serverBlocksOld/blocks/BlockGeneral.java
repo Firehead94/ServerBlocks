@@ -7,7 +7,7 @@ public class BlockGeneral extends Block {
 
 	protected BlockGeneral(Material mat) {
 		super(mat);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 }

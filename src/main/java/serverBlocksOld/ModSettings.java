@@ -2,12 +2,20 @@ package com.firehead.serverblocks;
 
 import java.util.ArrayList;
 
+import net.minecraftforge.common.config.Property;
+
 public class ModSettings {
 	
 	public static final String TEXTURE_LOC = "serverblocks";
 	public static final String TEXTURE_LOC_GUI = TEXTURE_LOC + ":textures/gui/";
 	
 	public static final int TIER_COUNT_DEFAULT = 6;
+	
+	public static Property[] PROTECTOR_BLOCK_L = new Property[TIER_COUNT_DEFAULT];
+	public static Property[] PROTECTOR_BLOCK_W = new Property[TIER_COUNT_DEFAULT];
+	public static Property[] PROTECTOR_BLOCK_H = new Property[TIER_COUNT_DEFAULT];
+	public static Property[] PROTECTOR_BLOCK_N = new Property[TIER_COUNT_DEFAULT];
+	
 	
 	public static final String TIER_1_NAME_DEFAULT = "Dirt";
 	public static final int TIER_1_WIDTH_DEFAULT = 10;
@@ -39,37 +47,38 @@ public class ModSettings {
 	public static final int TIER_6_LENGTH_DEFAULT = 60;
 	public static final int TIER_6_HEIGHT_DEFAULT = 15;
 	
-	public static String TIER_1_NAME;
-	public static int TIER_COUNT;
-	public static int TIER_1_WIDTH;
-	public static int TIER_1_LENGTH;
-	public static int TIER_1_HEIGHT;
+	/*
+	public static Property TIER_1_NAME;
+	public static Property TIER_COUNT;
+	public static Property TIER_1_WIDTH;
+	public static Property TIER_1_LENGTH;
+	public static Property TIER_1_HEIGHT;
 	
-	public static String TIER_2_NAME;
-	public static int TIER_2_WIDTH;
-	public static int TIER_2_LENGTH;
-	public static int TIER_2_HEIGHT;
+	public static Property TIER_2_NAME;
+	public static Property TIER_2_WIDTH;
+	public static Property TIER_2_LENGTH;
+	public static Property TIER_2_HEIGHT;
 	
-	public static String TIER_3_NAME;
-	public static int TIER_3_WIDTH;
-	public static int TIER_3_LENGTH;
-	public static int TIER_3_HEIGHT;
+	public static Property TIER_3_NAME;
+	public static Property TIER_3_WIDTH;
+	public static Property TIER_3_LENGTH;
+	public static Property TIER_3_HEIGHT;
 	
-	public static String TIER_4_NAME;
-	public static int TIER_4_WIDTH;
-	public static int TIER_4_LENGTH;
-	public static int TIER_4_HEIGHT;
+	public static Property TIER_4_NAME;
+	public static Property TIER_4_WIDTH;
+	public static Property TIER_4_LENGTH;
+	public static Property TIER_4_HEIGHT;
 	
-	public static String TIER_5_NAME;
-	public static int TIER_5_WIDTH;
-	public static int TIER_5_LENGTH;
-	public static int TIER_5_HEIGHT;
+	public static Property TIER_5_NAME;
+	public static Property TIER_5_WIDTH;
+	public static Property TIER_5_LENGTH;
+	public static Property TIER_5_HEIGHT;
 	
-	public static String TIER_6_NAME;
-	public static int TIER_6_WIDTH;
-	public static int TIER_6_LENGTH;
-	public static int TIER_6_HEIGHT;
-	
+	public static Property TIER_6_NAME;
+	public static Property TIER_6_WIDTH;
+	public static Property TIER_6_LENGTH;
+	public static Property TIER_6_HEIGHT;
+	*/
 	
 
 }

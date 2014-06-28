@@ -1,18 +1,29 @@
 package com.firehead.serverblocks.blocks;
 
-import com.firehead.serverblocks.ModSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 
-public class Blocks {
+import com.firehead.serverblocks.utils.IInitializer;
+
+public class Blocks implements IInitializer {
 	
-	public static BlockTradeBench blockBench;
-	public static BlockChargeStation blockChargeStation;
-	public static BlockProtector blockProtector;
-	
-	public static void registerBlocks() {
+	public static Block blockProtector;
+
+	@Override
+	public void preInit() {
+		blockProtector = new BlockProtector(Material.rock).setBlockName("serverblocks.protector");
 		
-		blockBench = new BlockTradeBench();
-		blockChargeStation = new BlockChargeStation();
-		blockProtector = new BlockProtector();
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postInit() {
+		// TODO Auto-generated method stub
 		
 	}
 

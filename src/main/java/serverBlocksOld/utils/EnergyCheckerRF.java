@@ -69,5 +69,22 @@ public class EnergyCheckerRF {
 		}
 		
 	}
+	
+	public static ItemStack cloneStack(Item item, int size) {
+		if (item == null) {
+			return null;
+		}
+		ItemStack stack = new ItemStack(item, size);
+		return stack;
+	}
+	
+	public static ItemStack cloneStack(ItemStack itemstack, int size) {
+		if (itemstack == null) {
+			return null;
+		}
+		ItemStack stack = itemstack.copy();
+		stack.stackSize = size;
+		return stack;
+	}
 
 }

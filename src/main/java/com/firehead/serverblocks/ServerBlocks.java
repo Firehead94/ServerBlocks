@@ -1,21 +1,24 @@
 package com.firehead.serverblocks;
 
+import com.firehead.serverblocks.blocks.Blocks;
+import com.firehead.serverblocks.handlers.ConfigHandler;
+import com.firehead.serverblocks.proxy.IProxy;
+import com.firehead.serverblocks.settings.ModSettings;
+
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid=ServerBlocks.MOD_ID, name=ServerBlocks.MOD_NAME, version=ServerBlocks.MOD_VERSION)
+@Mod(modid=ModSettings.MOD_ID, name=ModSettings.MOD_NAME, version=ModSettings.MOD_VERSION)
 public class ServerBlocks {
 	
-	public static final String MOD_ID = "ServerBlocks";
-	public static final String MOD_NAME = "Server Blocks";
-	public static final String MOD_VERSION = "1.7.2-1.0.0";
-	public static final boolean debug = false;
-	
-	@Mod.Instance(MOD_ID)
+	@Mod.Instance(ModSettings.MOD_ID)
 	public static ServerBlocks instance;
+	
+	@SidedProxy(clientSide = ModSettings.CLIENT_PROXY, serverSide = ModSettings.SERVER_PROXY, modId = ModSettings.MOD_ID)
+	public static IProxy proxy;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent e) { //NetworkHandlers, Configs, Items, Blocks
