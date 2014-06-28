@@ -3,22 +3,19 @@ package com.firehead.serverblocks.items;
 import com.firehead.serverblocks.utils.IInitializer;
 
 
-public class Items implements IInitializer {
+public class Items {
 
-	@Override
-	public void preInit() {
+	public static void preInit() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void init() {
+	public static void init() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void postInit() {
+	public static void postInit() {
 		// TODO Auto-generated method stub
 		
 	}

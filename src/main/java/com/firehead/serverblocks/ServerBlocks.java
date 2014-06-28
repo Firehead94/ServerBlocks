@@ -10,6 +10,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+//For future proofing block/item name change, create program to make .zip resource pack in resourcepacks folder.?
 
 @Mod(modid=ModSettings.MOD_ID, name=ModSettings.MOD_NAME, version=ModSettings.MOD_VERSION)
 public class ServerBlocks {
@@ -22,7 +23,11 @@ public class ServerBlocks {
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent e) { //NetworkHandlers, Configs, Items, Blocks
-		
+		ConfigHandler.init(e.getSuggestedConfigurationFile());
+		Blocks.preInit();
+		Blocks.init();
+		Blocks.postInit();
+		System.out.println(ModSettings.LOG_NAME + " Ending PreInit Phase");
 	}
 	
 	@Mod.EventHandler
@@ -32,7 +37,7 @@ public class ServerBlocks {
 	
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent e) { //Things after other mods
-		
+
 	}
 
 }

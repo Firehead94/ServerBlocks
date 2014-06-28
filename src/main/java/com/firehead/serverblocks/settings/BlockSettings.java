@@ -5,6 +5,7 @@ import net.minecraftforge.common.config.Property;
 public class BlockSettings {
 	
 	public static final int PROTECTOR_COUNT_DEFAULT = 6;
+	public static final String PROTECTOR_KEY = "ProtectorBlock";
 	public static final String[] PROTECTOR_DEFAULT_N = new String[] {
 		"Dirt",
 		"Stone",
@@ -38,14 +39,13 @@ public class BlockSettings {
 		15
 	};
 	
-	public static final Property[] PROTECTOR_N = new Property[PROTECTOR_COUNT_DEFAULT];
 	public static final Property[] PROTECTOR_L = new Property[PROTECTOR_COUNT_DEFAULT];
 	public static final Property[] PROTECTOR_W = new Property[PROTECTOR_COUNT_DEFAULT];
 	public static final Property[] PROTECTOR_H = new Property[PROTECTOR_COUNT_DEFAULT];
 	
 	public int getVolumeFromName(String name) {
-		for (int x=0;x<PROTECTOR_N.length;x++) {
-			if (name.toLowerCase() == PROTECTOR_N[x].getString().toLowerCase()) {
+		for (int x=0;x<PROTECTOR_DEFAULT_N.length;x++) {
+			if (name.toLowerCase() == PROTECTOR_DEFAULT_N[x].toLowerCase()) {
 				return PROTECTOR_L[x].getInt()*PROTECTOR_W[x].getInt()*PROTECTOR_H[x].getInt();
 			}
 		}

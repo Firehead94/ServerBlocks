@@ -3,26 +3,27 @@ package com.firehead.serverblocks.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
+import com.firehead.serverblocks.settings.BlockSettings;
+import com.firehead.serverblocks.settings.ModSettings;
 import com.firehead.serverblocks.utils.IInitializer;
 
-public class Blocks implements IInitializer {
+import cpw.mods.fml.common.registry.GameRegistry;
+
+public class Blocks {
 	
 	public static Block blockProtector;
 
-	@Override
-	public void preInit() {
+	public static void preInit() {
 		blockProtector = new BlockProtector(Material.rock).setBlockName("serverblocks.protector");
-		
+		System.out.println(ModSettings.LOG_NAME + " Registered Block");
 	}
 
-	@Override
-	public void init() {
+	public static void init() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void postInit() {
+	public static void postInit() {
 		// TODO Auto-generated method stub
 		
 	}
