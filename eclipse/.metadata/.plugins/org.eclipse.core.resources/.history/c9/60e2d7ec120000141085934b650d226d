@@ -1,0 +1,57 @@
+package com.firehead.serverblocks.blocks.tileentities;
+
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
+import com.firehead.serverblocks.settings.BlockSettings;
+import com.firehead.serverblocks.settings.ModSettings;
+
+public class TileProtector extends TileEntity {
+
+	private int tier;
+	private int length;
+	private int width;
+	private int height;
+	private EntityPlayer player;
+	private World world;
+	
+	public TileProtector() {
+	}
+	
+	public TileProtector(World world, int metadata) {
+		this.world = world;
+		this.tier = metadata;
+		this.length = BlockSettings.PROTECTOR_L[metadata];
+		this.width = BlockSettings.PROTECTOR_W[metadata];
+		this.height = BlockSettings.PROTECTOR_H[metadata];
+		
+	}
+	
+	
+	@Override
+	public String toString() {
+		return ModSettings.LOG_NAME + " Player: " + player.getDisplayName() + "| Length: " + length + "| Width: " + width + "| height: " + height;
+	}
+	
+	public void setPlayer(EntityLivingBase player) {
+		this.player = (EntityPlayer) player;
+		System.out.println(ModSettings.LOG_NAME + " Setting player who placed block");
+	}
+	
+	public int getLength() {
+		return length;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+
+
+}

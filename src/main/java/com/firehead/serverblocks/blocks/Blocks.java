@@ -3,6 +3,7 @@ package com.firehead.serverblocks.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
+import com.firehead.serverblocks.blocks.tileentities.TileProtector;
 import com.firehead.serverblocks.settings.BlockSettings;
 import com.firehead.serverblocks.settings.ModSettings;
 import com.firehead.serverblocks.utils.IInitializer;
@@ -24,7 +25,7 @@ public class Blocks {
 	}
 
 	public static void postInit() {
-		// TODO Auto-generated method stub
+		GameRegistry.registerTileEntity(TileProtector.class, "TileProtector");
 		
 	}
 

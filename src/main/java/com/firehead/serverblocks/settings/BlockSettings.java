@@ -39,14 +39,14 @@ public class BlockSettings {
 		15
 	};
 	
-	public static final Property[] PROTECTOR_L = new Property[PROTECTOR_COUNT_DEFAULT];
-	public static final Property[] PROTECTOR_W = new Property[PROTECTOR_COUNT_DEFAULT];
-	public static final Property[] PROTECTOR_H = new Property[PROTECTOR_COUNT_DEFAULT];
+	public static final int[] PROTECTOR_L = new int[PROTECTOR_COUNT_DEFAULT];
+	public static final int[] PROTECTOR_W = new int[PROTECTOR_COUNT_DEFAULT];
+	public static final int[] PROTECTOR_H = new int[PROTECTOR_COUNT_DEFAULT];
 	
 	public int getVolumeFromName(String name) {
 		for (int x=0;x<PROTECTOR_DEFAULT_N.length;x++) {
 			if (name.toLowerCase() == PROTECTOR_DEFAULT_N[x].toLowerCase()) {
-				return PROTECTOR_L[x].getInt()*PROTECTOR_W[x].getInt()*PROTECTOR_H[x].getInt();
+				return PROTECTOR_L[x]*PROTECTOR_W[x]*PROTECTOR_H[x];
 			}
 		}
 		System.out.println(ModSettings.LOG_NAME + " Name does not exist");
@@ -58,7 +58,7 @@ public class BlockSettings {
 			System.out.println(ModSettings.LOG_NAME + " Tier does not exist");
 			return 0;
 		}
-		return PROTECTOR_L[tier].getInt()*PROTECTOR_W[tier].getInt()*PROTECTOR_H[tier].getInt();
+		return PROTECTOR_L[tier]*PROTECTOR_W[tier]*PROTECTOR_H[tier];
 	}
 	
 	

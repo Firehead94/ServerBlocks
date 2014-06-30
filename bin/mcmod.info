@@ -1,0 +1,16 @@
+[
+{
+  "modid": "${modid}",
+  "name": "${name}",
+  "description": "Blocks for use in multiplayer.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://twitter.com/Firehead94_",
+  "updateUrl": "",
+  "authorList": ["Firehead94"],
+  "credits": "To all people who enjoy multiplayer",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": [CoFHCore || Buildcraft || IC2]
+}
+]

@@ -2,19 +2,25 @@ package com.firehead.serverblocks.blocks;
 
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import com.firehead.serverblocks.blocks.tileentities.TileProtector;
 import com.firehead.serverblocks.settings.BlockSettings;
 import com.firehead.serverblocks.settings.ModSettings;
 import com.firehead.serverblocks.utils.IInitializer;
 import com.firehead.serverblocks.utils.RegistryUtils;
+
+
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -32,6 +38,8 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 	public static ItemStack protectorGold;
 	public static ItemStack protectorEmerald;
 	public static ItemStack protectorDiamond;
+	public EntityPlayer player;
+	public boolean test = false;
 
 	protected BlockProtector(Material mat) {
 		super(mat);
@@ -43,10 +51,49 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 		postInit();
 		
 	}
+	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemstack) {
+		if (world.getTileEntity(x, y, z) instanceof TileProtector) {
+			((TileProtector)world.getTileEntity(x, y, z)).setPlayer(player);
+		}else {
+			System.out.println(ModSettings.LOG_NAME + " Block Protector TE not TileProtector; failed to set player");
+		}
+
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			if (!test) {
+				this.test = true;
+				System.out.println(test);
+			}else if (test) {
+				this.test = false;
+				System.out.println(test);
+			}
+		}
+
+		
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+		if (ModSettings.debug) {
+			System.out.println(world.getTileEntity(x, y, z));
+
+		}
+		return true;
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world, int meta) {
+		return new TileProtector(world, meta);
+	}
 
 	@Override
 	public TileEntity createTileEntity(World world, int metadata) {
-		return null;
+		return createNewTileEntity(world, metadata);
 	}
 
 	@Override

@@ -1,0 +1,82 @@
+package com.firehead.serverblocks.blocks.tileentities;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
+import com.firehead.serverblocks.settings.BlockSettings;
+import com.firehead.serverblocks.settings.ModSettings;
+
+public class TileProtector extends TileEntity {
+
+	private int tier;
+	private int length;
+	private int width;
+	private int height;
+	private String owner;
+	private World world;
+	
+	public TileProtector() {
+		
+	}
+	
+	public TileProtector(World world, int metadata) {
+		this.world = world;
+		this.tier = metadata;
+		this.length = BlockSettings.PROTECTOR_L[metadata];
+		this.width = BlockSettings.PROTECTOR_W[metadata];
+		this.height = BlockSettings.PROTECTOR_H[metadata];
+		
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound compound) {
+		super.writeToNBT(compound);
+		
+		compound.setShort("Tier", (short) tier);
+		compound.setInteger("Length", length);
+		compound.setInteger("Width", width);
+		compound.setInteger("Height", height);
+		compound.setString("Owner", owner);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		super.readFromNBT(compound);
+		
+		this.tier = compound.getShort("Tier");
+		this.length = compound.getInteger("Length");
+		this.width = compound.getInteger("Width");
+		this.height = compound.getInteger("Height");
+		this.owner = compound.getString("Owner");
+	}
+	
+	@Override
+	public String toString() {
+		return ModSettings.LOG_NAME + " Player: " + owner + "| Length: " + length + "| Width: " + width + "| height: " + height;
+	}
+	
+	public void setPlayer(EntityLivingBase player) {
+		this.owner = ((EntityPlayer)player).getDisplayName();
+		System.out.println(ModSettings.LOG_NAME + " Setting player who placed block");
+	}
+	
+	public int getLength() {
+		return length;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+
+
+}

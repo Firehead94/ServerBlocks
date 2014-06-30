@@ -3,6 +3,7 @@ package com.firehead.serverblocks.blocks;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public abstract class BlockGeneral extends Block {
+public abstract class BlockGeneral extends BlockContainer {
 
 	protected BlockGeneral(Material mat) {
 		super(mat);
