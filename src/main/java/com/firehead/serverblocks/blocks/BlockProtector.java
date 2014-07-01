@@ -39,7 +39,7 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 	public static ItemStack protectorEmerald;
 	public static ItemStack protectorDiamond;
 	public EntityPlayer player;
-	public boolean test = false;
+	public boolean isEnabled = true;
 
 	protected BlockProtector(Material mat) {
 		super(mat);
@@ -55,7 +55,7 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack itemstack) {
 		if (world.getTileEntity(x, y, z) instanceof TileProtector) {
-			((TileProtector)world.getTileEntity(x, y, z)).setPlayer(player);
+			((TileProtector)world.getTileEntity(x, y, z)).setOwner(player);
 		}else {
 			System.out.println(ModSettings.LOG_NAME + " Block Protector TE not TileProtector; failed to set player");
 		}
@@ -64,24 +64,18 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 	
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z)) {
-			if (!test) {
-				this.test = true;
-				System.out.println(test);
-			}else if (test) {
-				this.test = false;
-				System.out.println(test);
-			}
+		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && isEnabled) {
+			isEnabled = false;
 		}
-
-		
+		if (!world.isRemote && !world.isBlockIndirectlyGettingPowered(x, y, z) && !isEnabled) {
+			isEnabled = true;
+		}
 	}
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if (ModSettings.debug) {
 			System.out.println(world.getTileEntity(x, y, z));
-
 		}
 		return true;
 	}

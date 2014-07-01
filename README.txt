@@ -1,37 +1,19 @@
--------------------------------------------
-Source installation information for modders
--------------------------------------------
-This code follows the Minecraft Forge installation methodology. It will apply
-some small patches to the vanilla MCP source code, giving you and it access 
-to some of the data and functions you need to build a successful mod.
+ServerBlocks
+============
+##Whats it do?
 
-Note also that the patches are built against "unrenamed" MCP source code (aka
-srgnames) - this means that you will not be able to read them directly against
-normal code.
+So far, it protects blocks within the range of the protection stone. There is no way to add players to the whitelist yet but the person who places the block is the default owner and shouldn't have any troubles accessing blocks within the protected area.
 
-Source pack installation information:
+##TO DO
 
-Standalone source installation
-==============================
+-- White list functionality
+-- No overlapping fields unless owner is the same
+-- Resize fields? (maybe, should be too hard I think)
+-- Add Trade Stations (Items and Energy)
+-- Finish adding coins
+-- Other stuff.... probably
 
-To install this source code for development purposes, extract this zip file.
-It ships with a demonstration mod. Run 'gradlew setupDevWorkspace' to create
-a gradle environment primed with FML. Run 'gradlew eclipse' or 'gradlew idea' to
-create an IDE workspace of your choice.
-Refer to ForgeGradle for more information about the gradle environment
-Note: On macs or linux you run the './gradlew.sh' instead of 'gradlew'
+About Me
+========
 
-Forge source installation
-=========================
-MinecraftForge ships with this code and installs it as part of the forge
-installation process, no further action is required on your part.
-
-For reference this is version @MAJOR@.@MINOR@.@REV@.@BUILD@ of FML
-for Minecraft version @MCVERSION@.
-
-LexManos' Install Video
-=======================
-https://www.youtube.com/watch?v=8VEdtQLuLO0&feature=youtu.be
-
-For more details update more often refer to the Forge Forums:
-http://www.minecraftforge.net/forum/index.php/topic,14048.0.html
+This is my first "public" mod. You can find my actual first mod in some obscure custom 1.4.7 modpack someplace in the internet archives. Alls it did was add a single use to tungsten ore. After that, in 1.5, I started a protection stones mod that added 3 block to the game that were used in conjunction with PreciousStones (bukkit plugin). Now I have decided to make it more independent from the plugin and make them do something. So, as a result, this will be my first non-useless mod (tehe). If you are a mod-maker/java programmer, feel free to suggest better ways of doing something or ways to clean up my code a bit. I learned Java from VSWE's crash course and a few basic classes in my community college. 

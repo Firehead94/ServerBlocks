@@ -1,7 +1,10 @@
 package com.firehead.serverblocks;
 
+import net.minecraftforge.common.MinecraftForge;
+
 import com.firehead.serverblocks.blocks.Blocks;
 import com.firehead.serverblocks.handlers.ConfigHandler;
+import com.firehead.serverblocks.handlers.EventHandler;
 import com.firehead.serverblocks.proxy.IProxy;
 import com.firehead.serverblocks.settings.ModSettings;
 
@@ -27,6 +30,7 @@ public class ServerBlocks {
 		Blocks.preInit();
 		Blocks.init();
 		Blocks.postInit();
+		MinecraftForge.EVENT_BUS.register(new EventHandler());
 		System.out.println(ModSettings.LOG_NAME + " Ending PreInit Phase");
 	}
 	

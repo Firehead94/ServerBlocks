@@ -1,0 +1,33 @@
+package com.firehead.serverblocks.utils;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+
+import com.firehead.serverblocks.blocks.tileentities.TileProtector;
+
+public class BlockUtils {
+	
+	public BlockUtils() {
+	}
+	
+	public static int getProtectionBlocks(World world, int x, int y, int z, EntityPlayer player) {
+		int protections = 0;
+		for (Object tile : world.loadedTileEntityList) {
+			if (tile instanceof TileProtector) {
+				TileProtector te = (TileProtector)tile;
+				if (isPlayerInRange(world, x, y, z, player, te)) {
+					protections++;
+				}
+			}
+		}
+		
+		return protections;
+	}
+	
+	public static boolean isPlayerInRange(World world, int x, int y, int z, EntityPlayer player, TileProtector tile) {
+		
+		
+		return true;
+	}
+
+}
