@@ -6,12 +6,13 @@ So far, it protects blocks within the range of the protection stone. There is no
 
 ##TO DO
 
--- White list functionality
--- No overlapping fields unless owner is the same
--- Resize fields? (maybe, should be too hard I think)
--- Add Trade Stations (Items and Energy)
--- Finish adding coins
--- Other stuff.... probably
+- White list functionality
+- No overlapping fields unless owner is the same
+- Resize fields? (maybe, should be too hard I think)
+- Add Trade Stations (Items and Energy)
+- Finish adding coins
+- Other stuff.... probably
+
 
 About Me
 ========
