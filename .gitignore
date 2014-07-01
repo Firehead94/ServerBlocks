@@ -1,0 +1,8 @@
+###########
+## Eclipse
+###########
+
+eclipse/
+bin/
+.settings/
+.git/
