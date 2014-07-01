@@ -23,6 +23,7 @@ public class TileProtector extends TileEntity {
 	private int height;
 	private World world;
 	public String owner;
+	public boolean isDisabled = false;
 	public List<String> whitelist = new ArrayList<String>();
 	
 	
@@ -72,7 +73,9 @@ public class TileProtector extends TileEntity {
 		this.length = compound.getInteger("Length");
 		this.width = compound.getInteger("Width");
 		this.height = compound.getInteger("Height");
+		System.out.println(ModSettings.LOG_NAME + " READING OWNER: " + compound.getString("Owner"));
 		this.owner = compound.getString("Owner");
+		System.out.println(ModSettings.LOG_NAME + " OWNER WAS SET TO: " + owner);
 		whitelist.clear();
 		NBTTagList tagList = compound.getTagList("Whitelist", Constants.NBT.TAG_STRING);
 		for (int i=0;i<tagList.tagCount();i++) {
@@ -113,6 +116,7 @@ public class TileProtector extends TileEntity {
 	}
 	
 	public boolean isPlayerAllowed(String name) {
+		System.out.println(ModSettings.LOG_NAME + " Owner Name: " + owner + "|Name Passed: " + name);
 		return (isPlayerWhitelisted(name)) || (isPlayerOwner(name));
 	}
 	
@@ -130,7 +134,7 @@ public class TileProtector extends TileEntity {
 	}
 	
 	public void setOwner(EntityLivingBase player) {
-		this.owner = ((EntityPlayer)player).getDisplayName();
+		this.owner = "Firehead94";//((EntityPlayer)player).getDisplayName();
 		if (ModSettings.debug) {
 			System.out.println(ModSettings.LOG_NAME + " Setting player who placed block");
 		}

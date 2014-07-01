@@ -8,6 +8,9 @@ So far, it protects blocks within the range of the protection stone. There is no
 
 - White list functionality
 - No overlapping fields unless owner is the same
+- Protection Field Flags
+- PacketHander needed
+- Display fields in someway to client
 - Resize fields? (maybe, should be too hard I think)
 - Add Trade Stations (Items and Energy)
 - Finish adding coins

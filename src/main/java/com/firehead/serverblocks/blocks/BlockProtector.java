@@ -38,8 +38,6 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 	public static ItemStack protectorGold;
 	public static ItemStack protectorEmerald;
 	public static ItemStack protectorDiamond;
-	public EntityPlayer player;
-	public boolean isEnabled = true;
 
 	protected BlockProtector(Material mat) {
 		super(mat);
@@ -50,6 +48,13 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 		init();
 		postInit();
 		
+	}
+	
+	public static boolean isItemStackProtector(ItemStack itemstack) {
+		if (itemstack == protectorDirt || itemstack == protectorStone || itemstack == protectorIron || itemstack == protectorGold || itemstack == protectorEmerald || itemstack == protectorDiamond) {
+			return true;
+		}
+		return false;
 	}
 	
 	@Override
@@ -64,11 +69,16 @@ public class BlockProtector extends BlockGeneral implements IInitializer {
 	
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && isEnabled) {
-			isEnabled = false;
+		boolean temp = ((TileProtector)world.getTileEntity(x, y, z)).isDisabled;
+		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z) && !temp) {
+			System.out.println(ModSettings.LOG_NAME + " is not Disabled");
+			((TileProtector)world.getTileEntity(x, y, z)).isDisabled = true;
+			System.out.println(ModSettings.LOG_NAME + " setting Disabled");
 		}
-		if (!world.isRemote && !world.isBlockIndirectlyGettingPowered(x, y, z) && !isEnabled) {
-			isEnabled = true;
+		if (!world.isRemote && !world.isBlockIndirectlyGettingPowered(x, y, z) && temp) {
+			System.out.println(ModSettings.LOG_NAME + " is Disabled");
+			((TileProtector)world.getTileEntity(x, y, z)).isDisabled = false;
+			System.out.println(ModSettings.LOG_NAME + " setting not Disabled");
 		}
 	}
 	
